@@ -820,6 +820,13 @@ export class NetSuiteSDF {
       vscode.window.showErrorMessage("'sdfcli' not found in path. Please restart VS Code if you installed it.");
       return;
     }
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (workspaceFolders) {
+      this.rootPath = workspaceFolders[0].uri.fsPath;
+    } else {
+      vscode.window.showErrorMessage('Unable to determine workspace folder');
+      return;
+    }
 
     if (force || !this.sdfConfig) {
       let output = await execShellCommand('sdfcli manageauth -list');
@@ -929,7 +936,7 @@ export class NetSuiteSDF {
       }
 
       const stdinSubject = new Subject<string>();
-      
+
       this.sdfcli = spawn('sdfcli', commandArray, {
         cwd: workPath,
         stdin: stdinSubject,
@@ -1012,23 +1019,14 @@ export class NetSuiteSDF {
   }
 
   createPath(targetDir) {
-    // Strip leading '/'
-    targetDir = targetDir.substring(1);
-    const initDir = this.rootPath;
-    const baseDir = this.rootPath;
-
-    targetDir.split('/').reduce((parentDir, childDir) => {
-      const curDir = path.resolve(baseDir, parentDir, childDir);
-      try {
-        fs.mkdirSync(curDir);
-      } catch (err) {
-        if (err.code !== 'EEXIST') {
-          throw err;
-        }
+    targetDir = path.join(this.rootPath, ...targetDir.substring(1).split('/'));
+    try {
+      fs.mkdirSync(targetDir, { recursive: true });
+    } catch (err) {
+      if (err.code !== 'EEXIST') {
+        throw err;
       }
-
-      return curDir;
-    }, initDir);
+    }
   }
 
   async getFilePaths(filePatterns: string[]): Promise<string[]> {
