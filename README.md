@@ -51,12 +51,12 @@ All commands can be found with the `SDF` prefix in the Command Palette (Win: Ctr
 
 ### VS Code Commands
 
-| _Command_         | _Description_                                                                                   |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| Refresh Config    | Force the extension to re-read .sdfcli.json                                                     |
-| selectEnvironment | Select active environment from list in .sdfcli.json. If only one, will automatically select it. |
-| sync              | Grabs all available customizations from NetSuite that is normally possible by the plugin.       |
-| remove folders    | Removes all created folders from the current directory. Used in conjunction with sync.          |
+| _Command_         | _Description_                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Refresh Config    | Force the extension to re-read authids from the sdfcli authenticate command                                                 |
+| selectEnvironment | Select active environment (authid) from list in the sdfcli authenticate command. If only one, will automatically select it. |
+| sync              | Grabs all available customizations from NetSuite that is normally possible by the plugin.                                   |
+| remove folders    | Removes all created folders from the current directory. Used in conjunction with sync.                                      |
 
 ### Hotkeys
 
@@ -110,7 +110,6 @@ Cons:
 | _Command_   | _Description_                                                                       |
 | ----------- | ----------------------------------------------------------------------------------- |
 | New Project | Will generate SDF project file structure in the same manner as sdfcli-createproject |
-| Update .sdf | Automatically update .sdf with active environment information                       |
 
 ## Installation
 
@@ -142,10 +141,10 @@ brew cask install caskroom/versions/java8 # Unless you already have Java 8 insta
 brew install limebox/netsuite/sdfsdk
 ```
 
-2. The plugin is activated when a project is opened that has a `.sdf` or `.sdfcli.json` file in the root directory. So open a SDF project folder that contains a `.sdf` file.
+2. The plugin is activated when a project is opened that has a `FileCabinet` or `Objects` folder in the root directory.
 
-3) If the Extension is activated, you should see a `SDF` button in the bottom left status bar. Click the button to open up the Select Environment inputs. This will generate a .sdfcli.json in your root directory of your project.
+3. Hit Ctrl+Shift+P for Windows, or Cmd+Shift+P to bring up the command palette again, and type `SDF` to see all the options.
 
-4) Fill in your environments that you want to be able to switch between inside of the extension inside of the .sdfcli.json.
+4. Authenticate your environments using the `SDF: Authenticate` command
 
-5) Hit Ctrl+Shift+P for Windows, or Cmd+Shift+P to bring up the command palette again, and type `SDF` to see all the options.
+5. You should see a `SDF` button in the bottom left status bar. Click the button to open up the Select Environment (authid) inputs.

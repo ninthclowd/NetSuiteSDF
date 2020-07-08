@@ -18,9 +18,10 @@
     "theme": "dark"
   },
   "activationEvents": [
-    "workspaceContains:**/.sdf",
-    "workspaceContains:**/.sdfcli.json",
+    "workspaceContains:FileCabinet",
+    "workspaceContains:Objects",
     "onCommand:extension.addDependencies",
+    "onCommand:extension.authenticate",
     "onCommand:extension.deploy",
     "onCommand:extension.importBundle",
     "onCommand:extension.importFiles",
@@ -174,6 +175,11 @@
         "category": "SDF"
       },
       {
+        "command": "extension.authenticate",
+        "title": "Authenticate",
+        "category": "SDF"
+      },
+      {
         "command": "extension.createResetDeploy",
         "title": "Create/Reset deploy.xml",
         "category": "SDF"
@@ -282,11 +288,6 @@
         "command": "extension.resetPassword",
         "title": "Reset Password",
         "category": "SDF"
-      },
-      {
-        "command": "extension.authenticate",
-        "title": "Import Objects",
-        "category": "SDF"
       }
     ],
     "menus": {
@@ -337,6 +338,7 @@
     "fs-extra": "^7.0.1",
     "fstream": "^1.0.12",
     "lodash": "^4.17.11",
+    "open": "^7.0.4",
     "rimraf": "^2.6.3",
     "rxjs": "^5.5.10",
     "spawn-rx": "~2.0.12",
@@ -348,6 +350,7 @@
     "@types/fs-extra": "^7.0.0",
     "@types/mocha": "^2.2.42",
     "@types/node": "^12.0.4",
+    "@types/open": "^6.2.1",
     "@types/tmp": "0.0.34",
     "@types/xml2js": "^0.4.3",
     "ts-loader": "^5.3.3",
