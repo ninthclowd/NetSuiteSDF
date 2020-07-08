@@ -1,7 +1,7 @@
 {
   "name": "netsuitesdf-ci",
   "displayName": "NetSuiteSDF-CI",
-  "description": "Fork of https://github.com/christopherwxyz/NetSuiteSDF",
+  "description": "Fork of https://github.com/christopherwxyz/NetSuiteSDF that uses 2020.2 authids instead of tokens",
   "version": "0.0.1",
   "publisher": "jcoleman",
   "license": "MIT",
