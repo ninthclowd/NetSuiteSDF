@@ -44,7 +44,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "NetSuiteSDF",
+      "title": "NetSuiteSDF-CI",
       "properties": {
         "netsuitesdf.useQuickDeploy": {
           "type": "boolean",
@@ -67,7 +67,7 @@
       "explorer": [
         {
           "id": "netsuitesdf",
-          "name": "NetSuiteSDF"
+          "name": "NetSuiteSDF-CI"
         }
       ]
     },
@@ -333,7 +333,6 @@
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.122",
     "bluebird": "^3.5.3",
     "fs-extra": "^7.0.1",
     "fstream": "^1.0.12",
@@ -347,6 +346,7 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.122",
     "@types/fs-extra": "^7.0.0",
     "@types/mocha": "^2.2.42",
     "@types/node": "^12.0.4",

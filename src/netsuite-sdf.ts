@@ -10,6 +10,7 @@ import * as tmp from 'tmp';
 import * as xml2js from 'xml2js';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import * as Bluebird from 'bluebird';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
@@ -22,7 +23,6 @@ import { SDFConfig } from './sdf-config';
 import { CLICommand } from './cli-command';
 import { CustomObjects, CustomObject } from './custom-object';
 
-const Bluebird = require('bluebird');
 const globAsync = util.promisify(glob);
 
 export class NetSuiteSDF {
@@ -911,11 +911,7 @@ export class NetSuiteSDF {
 
   async runCommand(command: CLICommand, ...args): Promise<any> {
     await this.getConfig();
-    if (
-      this.sdfConfig &&
-      this.activeEnvironment
-      // (this.password || this.hasSdfCache) // No need if using tokens
-    ) {
+    if (this.sdfConfig && this.activeEnvironment) {
       const workspaceFolders = vscode.workspace.workspaceFolders;
       if (this.doShowOutput) {
         this.outputChannel.show();

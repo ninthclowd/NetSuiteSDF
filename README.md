@@ -1,8 +1,4 @@
-# NetSuiteSDF Extension
-
-## Notice
-
-Beginning with 2019.2, you will need to reinstall the plugin from https://github.com/christopherwxyz/NetSuiteSDF/ due to a change in publisher tokens.
+# NetSuiteSDF-CI Extension
 
 ## Introduction
 
@@ -10,13 +6,13 @@ This is a Visual Studio Code wrapper around the NetSuite SDF command-line interf
 
 ## Inspiration
 
-This is a port of the functionality provided by [tjtyrrell](https://github.com/tjtyrrell)'s Sublime SDF plugin (<https://github.com/limebox/sublime-sdf>). And we are borrowing the work he did in getting the Windows and Mac SDFCLI installers working.
+This is a fork of https://github.com/christopherwxyz/NetSuiteSDF with support for 2020.2 authentication ids
 
 ## Features
 
-- Currently updated to work with 2018.2.1 (2019.1 in the works)
+- Currently updated to work with 2020.2
 - Wraps SDF CLI commands
-- Environment (Sandbox, Production, etc.) selector
+- Environment/AuthId (Sandbox, Production, etc.) selector
 - Output window integrated with VS Code
 - _Now webpacked to speed up VS Code load time_
 - (BETA) Quick Deploy option available in Extension Preferences
@@ -30,12 +26,12 @@ All commands can be found with the `SDF` prefix in the Command Palette (Win: Ctr
 | _Command_                       | _Implemented_          | _Shortcut_ |
 | ------------------------------- | ---------------------- | ---------- |
 | adddependencies                 | ✔                      |
+| authenticate                    | ✔                      |
 | deploy                          | ✔                      |
 | importbundle                    |                        |
 | importconfiguration             |                        |
 | importfiles                     | ✔                      |
 | importobjects                   | ✔                      |
-| issuetoken                      | ✔                      |
 | listbundles                     | ✔                      |
 | listconfiguration               | ✔                      |
 | listfiles                       | ✔                      |
@@ -43,8 +39,6 @@ All commands can be found with the `SDF` prefix in the Command Palette (Win: Ctr
 | listObjects                     | ✔                      |
 | preview                         | ✔                      |
 | project                         | (Handled by extension) |
-| revoketoken                     | ✔                      |
-| savetoken                       | ✔                      |
 | update                          | ✔                      |
 | updatecustomrecordwithinstances | ✔                      |
 | validate                        | ✔                      |
@@ -72,7 +66,6 @@ For example, if I wanted to run the command `addDependencies` on a Mac, I would 
 | importBundle                    | `<p> d`    |
 | importFiles                     | `<p> F`    |
 | importObjects                   | `<p> O`    |
-| issueToken                      | `<p> t`    |
 | listBundles                     | `<p> b`    |
 | listConfiguration               | `<p> c`    |
 | listFiles                       | `<p> f`    |
@@ -80,8 +73,6 @@ For example, if I wanted to run the command `addDependencies` on a Mac, I would 
 | listObjects                     | `<p> o`    |
 | preview                         | `<p> p`    |
 | refreshConfig                   | `<p> r`    |
-| revokeToken                     | `<p> R`    |
-| saveToken                       | `<p> T`    |
 | selectEnvironment               | `<p> s`    |
 | update                          | `<p> u`    |
 | updateCustomRecordWithInstances | `<p> U`    |
