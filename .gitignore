@@ -1,9 +1,7 @@
 out
 node_modules
 .vscode-test/
-*.vsix
 *.log
-package-lock.json
 .DS_Store
 yarn.lock
 dist/
